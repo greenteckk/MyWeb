@@ -1,0 +1,366 @@
+body {
+    /* 宽度占浏览器可视区域的高度 */
+    background-image: url("/images/image/5.jpg");
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 15px 100px;
+    flex-wrap: wrap;
+}
+
+/* 导航栏 */
+.navbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    background: #5b639c;
+    align-items: center;
+}
+
+.navbar .nav {
+    width: 1200px;
+    height: 100%;
+    /* 让元素自动水平居中 */
+    margin: 0 auto;
+}
+
+.navbar .logo {
+    font-size:30px;
+    color: #fff;
+    font-weight: 700;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 5px 5px 5px black; 
+    margin-left: 30px;
+}
+
+.navbar .nav ul li a img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+    right: -110px;
+    border-radius: 50%;
+}
+
+.navbar .nav ul {
+    /* 相对定位 */
+    position: relative;
+    /* 弹性布局 */
+    display: flex;
+    /* 让子元素平均分配宽度 */
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+
+.navbar .nav ul li {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar .nav ul li > a {
+	/* 因为a元素是行内元素 必须将其转为行内块或者块级才能设置宽度和高度 */
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    /* letter-spacing: 1px; */
+}
+
+.navbar .nav ul li a:hover {
+    transform: scale(1.2);
+    transition: all 0.6s;
+}
+
+.navbar .nav ul li ol {
+    width: 100%;
+    background-color: #5b639c;
+	/* 让盒子先沿着y轴缩放到0 也就是隐藏了 */
+    transform: scaleY(0);
+	/* 我们需要将盒子从上面滑动下来 设置一下缩放的中心点即可 设置到最上面的中间位置 */
+    transform-origin: 50% 0;
+    /* 设置过渡 */
+    transition: all 0.5s;
+    position: relative;
+    right: -20px;
+}
+
+.navbar .nav ul li ol:hover li {
+    position: relative;
+    top: 20px;
+}
+
+.navbar .nav ul li ol li {
+    height: 70px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    background-color: #5b639c;
+}
+
+.navbar .nav ul li ol li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navbar .nav ul li a img:hover {
+    position: relative;
+    top: 15px;
+}
+
+.navbar .nav ul li ol li:hover {
+    background-color: #1f244d;
+}
+
+.navbar .nav ul li:hover ol {
+    transform: scaleY(1);
+    z-index: 1;
+}
+
+.navbar .nav ul .underline {
+    /* 绝对定位 */
+    position: absolute;
+    bottom: 0;
+    left: 720px;
+    width: 240px;
+    height: 6px;
+    /* 设置一下盒子的左上角和右上角的圆角 */
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: rgb(90, 150, 195);
+    /* 加上过渡 */
+    transition: all 0.5s;
+    /* pointer-events: none; */
+}
+
+.navbar .nav ul .underline::before {
+    content: "";
+	/* 利用::before伪元素设置三角 */
+    position: absolute;
+    top: -10px;
+    left: 111px;
+    width: 18px;
+    height: 10px;
+	/* inherit可以继承父元素的属性值 */
+    background-color: inherit;
+    /* 坐标绘制三角形 */
+    clip-path: polygon(0 100%,50% 0,100% 100%);
+}
+
+.navbar .nav ul  li:nth-child(2):hover ~ .underline {
+    left: 250px;
+    background-color: #ff9933;
+}
+
+.navbar .nav ul  li:nth-child(3):hover ~ .underline{
+    left: 490px;
+    background-color: #339933;
+}
+
+.navbar .nav ul  li:nth-child(1):hover ~ .underline{
+    left: 0px;
+    background-color: red;
+}
+
+
+/* 侧边栏 */
+#general-content {
+    position: relative;
+    top: 100px;
+    height: 1650px;
+    padding-left: 0px;
+    box-shadow: -20px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.logo-post {
+	width: 193px;
+	height: 41px;
+	background: url(../images/image/logo.png) no-repeat;
+	position: absolute;
+	bottom: 450px;
+	left: 2px;
+    background-color: rgb(52, 52, 52);
+}
+
+#side_menu {
+	position:sticky;
+	top:240px;
+	left:0px;
+	z-index: 10;
+	width:300px;
+	height:500px;
+}
+
+.side-box {
+   position: relative;
+   left: 21px;
+   border-radius: 10px;
+}
+
+#side_menu .menu {
+	background: url(../images/image/mn_2.png) repeat-y 0 0;
+}
+
+#side_menu .menu a.menu_item {
+	display:block;
+	color:#bbb;
+	background: url(../images/image/menu_line.png) no-repeat center bottom;
+	width: 191px;
+	margin-left: 1px;
+	margin-right: 1px;
+	font-size:14px;
+	font-weight: 700;
+	text-decoration:none;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 20px 0;
+}
+
+#side_menu .menu a.menu_item:hover {
+	background: url(../images/image/menu_line.png) no-repeat center bottom #1E1E1E;
+	color:#fff;
+}
+
+.top_bg_menu {
+	width: 193px;
+	height: 14px;
+	background: url(../images/image/mn_2.png) no-repeat 0 bottom;
+}
+
+.top_first {
+	width: 191px;
+	height: 1px;
+	background: url(../images/image/menu_line.png) no-repeat center bottom;
+}
+
+.bottom_bg_menu {
+	width: 193px;
+	height: 106px;
+	background: url(../images/image/mn_3.png) no-repeat 0 top;
+	position: relative;
+}
+
+/* 总内容 */
+#general-content {
+	margin:0 auto; 
+	width:960px;
+	position: relative;
+}
+
+.container {  
+	margin:0 auto; 
+	width:960px;
+	position: relative;
+	margin-top: 15px;
+}
+
+.header {
+	position: relative;
+	width: 960px;
+	height: 114px;
+    bottom: 500px;
+	background: url(../images/image/header.png) no-repeat 0 bottom;
+}
+
+.content {
+    position: relative;
+    bottom: 500px;
+	width: 960px;
+	margin: 0;
+	height: auto;
+	overflow: hidden;
+	background: url(../images/image/layout_bg.png) repeat-y 0 0;
+}
+
+.content_wrapper {
+	width: 680px;
+	float: right;
+	margin-right: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 25px;
+}
+
+.page_title {
+    color: rgb(205, 92, 92);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bottom_bg {
+    position: relative;
+    bottom: 14px;
+    left: 367px;
+}
+
+.bottom_bg img {
+	width: 960px;
+	height: 40px;
+    position: relative;
+    top: 100px;
+}
+
+.blog {
+    position: relative;
+    left: 250px;
+}
+
+.blog-title {
+    font-size: 25px;
+}
+
+.more {
+    color: blue;
+    cursor: pointer;
+}
+
+hr {
+    background-color: #ff9933;
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.approve {
+    color: rgb(0, 102, 255);
+    background-color: rgb(151, 169, 198);
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.disapprove {
+    width: 40px;
+    height: 50px;
+    line-height: 40px;
+    background-color: rgb(151, 169, 198);
+    position: relative;
+    left: 130px;
+    bottom: 50px;
+}
+
+.disapprove img {
+    position: relative;
+    left: 12px;
+    top: 5px;
+}
+
+i img {
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
